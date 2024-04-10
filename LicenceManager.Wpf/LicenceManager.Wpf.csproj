@@ -13,4 +13,13 @@
     <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Styles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LicenceManager.Core\LicenceManager.Core.csproj" />
+    <ProjectReference Include="..\LicenceManager.DBLib\LicenceManager.DBLib.csproj" />
+  </ItemGroup>
+
 </Project>

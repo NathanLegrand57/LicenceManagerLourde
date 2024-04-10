@@ -9,6 +9,19 @@ namespace LicenceManager.Wpf
     /// </summary>
     public partial class App : Application
     {
-    }
 
+        #region Fields
+
+        private bool _IsLoggedIn;
+
+
+        #endregion
+
+        #region Properties
+
+        public bool IsLoggedIn { get => _IsLoggedIn; set => _IsLoggedIn = value; }
+
+        #endregion
+
+    }
 }
