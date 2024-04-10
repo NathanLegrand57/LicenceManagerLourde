@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Styles\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\LicenceManager.Core\LicenceManager.Core.csproj" />
     <ProjectReference Include="..\LicenceManager.DBLib\LicenceManager.DBLib.csproj" />
   </ItemGroup>

@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:LicenceManager.Wpf" xmlns:converters="clr-namespace:LicenceManager.Wpf.Converters"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <converters:BoolToVisibilityConverter x:Key="SharedBoolToVisibilityConverter"/>
+        <ResourceDictionary>
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Styles/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <converters:BoolToVisibilityConverter x:Key="SharedBoolToVisibilityConverter"/>
+            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -3,10 +3,55 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:adorners="http://gu.se/Adorners"
       xmlns:local="clr-namespace:LicenceManager.Wpf.views"
       mc:Ignorable="d">
 
-    <Grid>
-        
+    <Grid ShowGridLines="True" Grid.Row="0" Background="Gray" Visibility="{Binding IsLoggedIn, Converter={StaticResource SharedBoolToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged, ConverterParameter='!'}">
+        <Grid ShowGridLines="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*"  />
+            </Grid.RowDefinitions>
+            <Label Content="Connexion" Foreground="White" Grid.Column="2" Grid.Row="1" Style="{StaticResource LoginLabel}"></Label>
+            <Button x:Name="ConnectButton" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" Content="Connexion" Click="ConnectButton_Click" Style="{StaticResource LoginButton}" />
+        </Grid>
+        <Grid ShowGridLines="False">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"  />
+            </Grid.RowDefinitions>
+
+            <TextBox Grid.Column="2" Grid.Row="1" adorners:Watermark.Text="Identifiant" Text="{Binding Libelle, UpdateSourceTrigger=PropertyChanged}" />
+            <PasswordBox x:Name="PasswordBoxLogin" Grid.Column="2" Grid.Row="3" PasswordChanged="PasswordBoxLogin_PasswordChanged" adorners:Watermark.Text="Mot de passe" />
+            <Label Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Content="{Binding Message}" Foreground="White" HorizontalAlignment="Center" />
+
+        </Grid>
     </Grid>
 </UserControl>
