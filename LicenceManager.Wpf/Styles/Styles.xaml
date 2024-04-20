@@ -1,6 +1,99 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <Style x:Key="LabelTitle" TargetType="Label">
+        <Setter Property="FontSize" Value="27"/>
+        <Setter Property="Opacity" Value="0.8" />
+    </Style>
+
+    <Style x:Key="textblockstyle" TargetType="Label">
+
+        <Style.Setters>
+
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="Foreground" Value="black"></Setter>
+            <Setter Property="FontSize" Value="27"></Setter>
+            <Setter Property="Opacity" Value="0.8"></Setter>
+
+        </Style.Setters>
+
+    </Style>
+
+    <Style x:Key="blockstyle" TargetType="Label">
+
+        <Style.Setters>
+
+            <Setter Property="Foreground" Value="black"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+
+        </Style.Setters>
+
+    </Style>
+
+    <Style x:Key="textstyle" TargetType="TextBox">
+
+        <Style.Setters>
+
+            <Setter Property="Foreground" Value="black"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Height" Value="50"></Setter>
+            <Setter Property="TextWrapping" Value="Wrap" ></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+
+        </Style.Setters>
+
+    </Style>
+
+    <Style x:Key="comboboxstyle" TargetType="ComboBox">
+
+        <Style.Setters>
+
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Height" Value="50"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+
+        </Style.Setters>
+
+    </Style>
+
+    <Style x:Key="datestyle" TargetType="DatePicker">
+
+        <Style.Setters>
+
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Height" Value="50"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+
+        </Style.Setters>
+
+    </Style>
+
+    <Style x:Key="buttonCancelStyle" TargetType="Button">
+
+        <Style.Setters>
+
+            <Setter Property="Background" Value="#bb2d3b"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+
+        </Style.Setters>
+
+    </Style>
+
+    <Style x:Key="buttonConfirmStyle" TargetType="Button">
+
+        <Style.Setters>
+
+            <Setter Property="Background" Value="#157347"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+
+        </Style.Setters>
+
+    </Style>
     <Style x:Key="LoginLabel" TargetType="Label">
 
         <Style.Setters>
@@ -13,7 +106,6 @@
         </Style.Setters>
 
     </Style>
-    
     <Style x:Key="LoginButton" TargetType="Button">
 
         <Style.Setters>

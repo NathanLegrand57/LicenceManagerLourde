@@ -21,7 +21,5 @@ public partial class User
 
     public DateTime? UpdatedAt { get; set; }
 
-    public ulong? AdresseId { get; set; }
-
     public DateTime? DeletedAt { get; set; }
 }

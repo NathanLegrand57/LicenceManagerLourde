@@ -17,8 +17,6 @@ public partial class LicencemanagerContext : DbContext
 
     public virtual DbSet<Ability> Abilities { get; set; }
 
-    public virtual DbSet<Adress> Adresses { get; set; }
-
     public virtual DbSet<AssignedRole> AssignedRoles { get; set; }
 
     public virtual DbSet<DemandeLicence> DemandeLicences { get; set; }
@@ -43,11 +41,9 @@ public partial class LicencemanagerContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    public virtual DbSet<Ville> Villes { get; set; }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySQL("ConfigurationManager.ConnectionStrings['SQLServerConnection'].ConnectionString");
+        => optionsBuilder.UseMySQL("Server=localhost;Database=licencemanager;user=root;password=;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -81,28 +77,6 @@ public partial class LicencemanagerContext : DbContext
             entity.Property(e => e.UpdatedAt)
                 .HasColumnType("timestamp")
                 .HasColumnName("updated_at");
-        });
-
-        modelBuilder.Entity<Adress>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("adresses");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.CreatedAt)
-                .HasColumnType("timestamp")
-                .HasColumnName("created_at");
-            entity.Property(e => e.DeletedAt)
-                .HasColumnType("timestamp")
-                .HasColumnName("deleted_at");
-            entity.Property(e => e.Rue)
-                .HasMaxLength(75)
-                .HasColumnName("rue");
-            entity.Property(e => e.UpdatedAt)
-                .HasColumnType("timestamp")
-                .HasColumnName("updated_at");
-            entity.Property(e => e.VilleId).HasColumnName("ville_id");
         });
 
         modelBuilder.Entity<AssignedRole>(entity =>
@@ -139,6 +113,7 @@ public partial class LicencemanagerContext : DbContext
             entity.ToTable("demande_licences");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.ARenouveler).HasColumnName("a_renouveler");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("timestamp")
                 .HasColumnName("created_at");
@@ -153,9 +128,6 @@ public partial class LicencemanagerContext : DbContext
                 .HasColumnName("deleted_at");
             entity.Property(e => e.LicenceId).HasColumnName("licence_id");
             entity.Property(e => e.LicencechoisieId).HasColumnName("licencechoisie_id");
-            entity.Property(e => e.TypeDemande)
-                .HasMaxLength(75)
-                .HasColumnName("type_demande");
             entity.Property(e => e.UpdatedAt)
                 .HasColumnType("timestamp")
                 .HasColumnName("updated_at");
@@ -381,7 +353,6 @@ public partial class LicencemanagerContext : DbContext
             entity.HasIndex(e => e.Email, "users_email_unique").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.AdresseId).HasColumnName("adresse_id");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("timestamp")
                 .HasColumnName("created_at");
@@ -401,28 +372,6 @@ public partial class LicencemanagerContext : DbContext
             entity.Property(e => e.RememberToken)
                 .HasMaxLength(100)
                 .HasColumnName("remember_token");
-            entity.Property(e => e.UpdatedAt)
-                .HasColumnType("timestamp")
-                .HasColumnName("updated_at");
-        });
-
-        modelBuilder.Entity<Ville>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("villes");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.CodePostal).HasColumnName("code_postal");
-            entity.Property(e => e.CreatedAt)
-                .HasColumnType("timestamp")
-                .HasColumnName("created_at");
-            entity.Property(e => e.DeletedAt)
-                .HasColumnType("timestamp")
-                .HasColumnName("deleted_at");
-            entity.Property(e => e.Nom)
-                .HasMaxLength(75)
-                .HasColumnName("nom");
             entity.Property(e => e.UpdatedAt)
                 .HasColumnType("timestamp")
                 .HasColumnName("updated_at");

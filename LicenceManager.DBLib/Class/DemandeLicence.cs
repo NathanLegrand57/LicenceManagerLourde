@@ -11,7 +11,7 @@ public partial class DemandeLicence
 
     public DateTime? UpdatedAt { get; set; }
 
-    public string TypeDemande { get; set; } = null!;
+    public bool ARenouveler { get; set; }
 
     public DateTime DateDebutLicence { get; set; }
 

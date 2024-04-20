@@ -3,10 +3,89 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LicenceManager.Wpf" xmlns:views="clr-namespace:LicenceManager.Wpf.views"
+        xmlns:local="clr-namespace:LicenceManager.Wpf" xmlns:Window="clr-namespace:LicenceManager.Wpf.Windows"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="MainView">
-        <views:LoginView/>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Produits">
+                <Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"></RowDefinition>
+                            <RowDefinition Height="200"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"></ColumnDefinition>
+                            <ColumnDefinition Width="18*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="LabelProduitsTitle" Content="Produits :" Grid.Column="1" Style="{StaticResource LabelTitle}"></Label>
+                        <DataGrid
+                            x:Name="test"
+                         Grid.Column="1"
+                         Grid.Row="1" 
+                         ItemsSource="{Binding Produits}"
+						         DisplayMemberPath="Libelle"
+						         SelectedItem="{Binding Produits}"
+                                 AutoGenerateColumns="False"
+                                 IsReadOnly="True"
+>
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Nom du Produits" Binding="{Binding Libelle}"/>
+                                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="16*"></ColumnDefinition>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="_AddProduitButton" Content="Ajouter" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#157347"  Click="Create_Produit_Click"/>
+                    </Grid>
+                    <GroupBox Grid.Row="1" Visibility="{Binding Produits, Converter={StaticResource SharedObjectToVisibilityConverter}}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"></ColumnDefinition>
+                                <ColumnDefinition Width="70"></ColumnDefinition>
+                                <ColumnDefinition Width="20"></ColumnDefinition>
+                                <ColumnDefinition Width="70"></ColumnDefinition>
+                                <ColumnDefinition Width="20"></ColumnDefinition>
+                                <ColumnDefinition Width="70"></ColumnDefinition>
+                                <ColumnDefinition Width="10*"></ColumnDefinition>
+                                <ColumnDefinition Width="70"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <!--<Button x:Name="_ShowProduitsButton" Content="Détails" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#0b5ed7" Click="Show_Details_Produit"/>-->
+                            <Button x:Name="_UpdateProduitsButton" Content="Modifier" Grid.Row="1" Grid.Column="3" Foreground="Black" Background="#ffca2c" Click="Edit_Produit_Click"/>
+                            <!--<Button x:Name="_DeleteProduitsButton" Content="Supprimer" Grid.Row="1" Grid.Column="5" Foreground="White" Background="#bb2d3b" Click="Delete_Produit_Click"/>-->
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
+            <!--<TabItem Header="Clients">
+                <views:ClientView/>
+            </TabItem>
+            <TabItem Header="Partenaires">
+                <views:PartenaireView/>
+            </TabItem>-->
+        </TabControl>
+
     </Grid>
 </Window>

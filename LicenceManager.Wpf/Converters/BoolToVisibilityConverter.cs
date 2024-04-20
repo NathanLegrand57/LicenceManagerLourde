@@ -4,16 +4,15 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System;
 using System.Windows.Data;
+using System.Windows;
 
 namespace LicenceManager.Wpf.Converters
 {
     class BoolToVisibilityConverter : IValueConverter
     {
         /// <summary>
-        /// Converti le booléen en visibilité
+        /// Convertie le booléen en visibilité
         /// </summary>
         /// <param name="value">Valeur (booleen)</param>
         /// <param name="targetType">Type visé</param>
@@ -37,7 +36,7 @@ namespace LicenceManager.Wpf.Converters
         }
 
         /// <summary>
-        /// Convertie une visibilité en booléen. Non utilisé donc non implémenté
+        /// Convertie une visibilité en booléen.
         /// </summary>
         /// <param name="value">Valeur (booleen)</param>
         /// <param name="targetType">Type visé</param>
@@ -51,3 +50,4 @@ namespace LicenceManager.Wpf.Converters
         }
     }
 }
+
