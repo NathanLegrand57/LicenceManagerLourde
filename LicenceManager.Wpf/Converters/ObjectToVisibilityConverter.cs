@@ -7,24 +7,25 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows;
 
-namespace LicenceManager.Wpf.Converters;
-
-class ObjectToVisibilityConverter : IValueConverter
+namespace LicenceManager.Wpf.Converters
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    class ObjectToVisibilityConverter : IValueConverter
     {
-        Visibility visibility = Visibility.Collapsed;
-
-        if (value != null && value != DependencyProperty.UnsetValue)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            visibility = Visibility.Visible;
+            Visibility visibility = Visibility.Collapsed;
+
+            if (value != null && value != DependencyProperty.UnsetValue)
+            {
+                visibility = Visibility.Visible;
+            }
+
+            return visibility;
         }
 
-        return visibility;
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        throw new NotImplementedException();
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

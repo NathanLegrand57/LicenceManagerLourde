@@ -26,7 +26,7 @@ namespace LicenceManager.Wpf.Views
             this.DataContext = context;
         }
 
-        private void validate_click(object sender, RoutedEventArgs e)
+        private void confirm_click(object sender, RoutedEventArgs e)
         {
             ((ViewModelProduit)this.DataContext).AddProduit();
             this.Close();

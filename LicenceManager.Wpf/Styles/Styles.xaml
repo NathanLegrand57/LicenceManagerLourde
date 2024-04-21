@@ -25,8 +25,7 @@
         <Style.Setters>
 
             <Setter Property="Foreground" Value="black"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
-            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
             <Setter Property="FontSize" Value="20"></Setter>
 
         </Style.Setters>
@@ -41,30 +40,6 @@
             <Setter Property="Width" Value="200"></Setter>
             <Setter Property="Height" Value="50"></Setter>
             <Setter Property="TextWrapping" Value="Wrap" ></Setter>
-            <Setter Property="FontSize" Value="15"></Setter>
-
-        </Style.Setters>
-
-    </Style>
-
-    <Style x:Key="comboboxstyle" TargetType="ComboBox">
-
-        <Style.Setters>
-
-            <Setter Property="Width" Value="200"></Setter>
-            <Setter Property="Height" Value="50"></Setter>
-            <Setter Property="FontSize" Value="15"></Setter>
-
-        </Style.Setters>
-
-    </Style>
-
-    <Style x:Key="datestyle" TargetType="DatePicker">
-
-        <Style.Setters>
-
-            <Setter Property="Width" Value="200"></Setter>
-            <Setter Property="Height" Value="50"></Setter>
             <Setter Property="FontSize" Value="15"></Setter>
 
         </Style.Setters>
@@ -117,4 +92,4 @@
         </Style.Setters>
 
     </Style>
-</ResourceDictionary>
+</ResourceDictiona

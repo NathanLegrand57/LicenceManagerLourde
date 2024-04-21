@@ -11,7 +11,7 @@
             <TabItem Header="Produits">
                 <Grid>
 
-                    <Grid>
+                    <Grid ShowGridLines="True">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100"></RowDefinition>
                             <RowDefinition Height="200"></RowDefinition>
@@ -40,7 +40,7 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
-                    <Grid>
+                    <Grid ShowGridLines="False">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"></RowDefinition>
                             <RowDefinition Height="30"></RowDefinition>
@@ -54,7 +54,7 @@
                         <Button x:Name="_AddProduitButton" Content="Ajouter" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#157347"  Click="Create_Produit_Click"/>
                     </Grid>
                     <GroupBox Grid.Row="1" Visibility="{Binding Produits, Converter={StaticResource SharedObjectToVisibilityConverter}}">
-                        <Grid>
+                        <Grid ShowGridLines="True">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"></RowDefinition>
                                 <RowDefinition Height="30"></RowDefinition>
