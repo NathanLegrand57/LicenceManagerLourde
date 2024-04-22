@@ -1,4 +1,5 @@
-﻿using LicenceManager.Wpf.ViewModels;
+﻿using LicenceManager.DBLib.Class;
+using LicenceManager.Wpf.ViewModels;
 using LicenceManager.Wpf.Views;
 using System.Text;
 using System.Windows;
@@ -26,17 +27,34 @@ namespace LicenceManager.Wpf
         }
         private void Create_Produit_Click(object sender, RoutedEventArgs e)
         {
-            FormCreateProduitView formCreateProduitsView = new FormCreateProduitView((ViewModelProduit)this.DataContext);
+            // Initialiser la vue FormCreateProduitView en transmettant le ViewModelProduit
+            FormCreateProduitView formCreateProduitView = new FormCreateProduitView((ViewModelProduit)this.DataContext);
 
-            formCreateProduitsView.ShowDialog();
+            // Afficher la vue
+
+            formCreateProduitView.ShowDialog();
 
         }
 
         private void Edit_Produit_Click(object sender, RoutedEventArgs e)
         {
-            FormEditProduitView formModif = new FormEditProduitView(((ViewModelProduit)this.DataContext));
+            if (test.SelectedItem != null)
+            {
+                // Obtenir le produit sélectionné
+                Produit selectedProduit = (Produit)test.SelectedItem;
 
-            formModif.ShowDialog();
+                // Initialiser la vue FormEditProduitView en transmettant le ViewModelProduit et le produit sélectionné
+                FormEditProduitView formEditProduitView = new FormEditProduitView((ViewModelProduit)this.DataContext, selectedProduit);
+
+                // Afficher la vue
+                formEditProduitView.ShowDialog();
+            }
+            else
+            {
+                // Afficher un message d'erreur si aucun produit n'est sélectionné
+                MessageBox.Show("Veuillez sélectionner un produit à modifier.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
         //private void Show_Details_Produit(object sender, RoutedEventArgs e)

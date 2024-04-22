@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace LicenceManager.Wpf.ViewModels
 {
@@ -35,6 +36,7 @@ namespace LicenceManager.Wpf.ViewModels
 
         internal void AddProduit()
         {
+            // Vérifier si les champs obligatoires sont remplis
 
             using (LicencemanagerContext context = new())
             {
@@ -43,9 +45,23 @@ namespace LicenceManager.Wpf.ViewModels
                     this.NewProduit = new Produit();
                 }
 
-                context.Add(this.NewProduit);//J'ajoute le produit au contexte
-                context.SaveChanges(); // Je sauvegarde les modification du contexte en base de données
-                this.Produits.Add(this.NewProduit); // Si j'ai une liste pour la vue, je l'y ajoute pour qu'elle s'
+                // Vérifier si les champs sont vides ou non
+                if (string.IsNullOrWhiteSpace(this.NewProduit.Libelle))
+                {
+                    MessageBox.Show("Veuillez saisir le nom du produit.", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return; // Arrêter l'exécution de la méthode si le nom du produit n'est pas rempli
+                }
+                    else if (string.IsNullOrWhiteSpace(this.NewProduit.Description))
+                    {
+                        MessageBox.Show("Veuillez saisir la description du produit.", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    context.Add(this.NewProduit); // Ajouter le produit au contexte
+                    context.SaveChanges(); // Sauvegarder les modifications du contexte en base de données
+                    this.Produits.Add(this.NewProduit); // Afficher le nouveau produit dans la liste des produits
+
+                    // Réinitialiser les champs du formulaire
+                    this.NewProduit = new Produit();
             }
         }
 
@@ -55,15 +71,30 @@ namespace LicenceManager.Wpf.ViewModels
             {
                 using (LicencemanagerContext context = new())
                 {
-                    context.Update(this.SelectedProduit);
+                    // Vérifier si les champs sont vides ou non
+                    if (string.IsNullOrWhiteSpace(this.SelectedProduit.Libelle))
+                    {
+                        MessageBox.Show("Veuillez saisir le nom du produit.", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return; // Arrêter l'exécution de la méthode si le nom du produit n'est pas rempli
+                    }
+                    else if (string.IsNullOrWhiteSpace(this.SelectedProduit.Description))
+                    {
+                        MessageBox.Show("Veuillez saisir la description du produit.", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    context.Update(this.SelectedProduit); // Mettre à jour les modifications du contexte en base de données
                     context.SaveChanges();
+
                 }
 
+
             }
+
         }
+    }
         //internal void RemoveProduit()
         //{
-        //    if (this.SelectedProduit.Libelle is null || this.SelectedProduit.Type is null) // Ne fonctionne pas avec les clés étrangères
+        //    if (this.SelectedProduit.Libelle is null || this.SelectedProduit.Type is null)
         //    {
         //        string text = "Impossible de supprimer une ligne vide";
         //        MessageBox.Show(text);
@@ -78,5 +109,4 @@ namespace LicenceManager.Wpf.ViewModels
         //        this.Produits?.Remove(this.SelectedProduit);
         //    }
         //}
-    }
 }

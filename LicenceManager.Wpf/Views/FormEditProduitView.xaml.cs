@@ -1,4 +1,5 @@
-﻿using LicenceManager.Wpf.ViewModels;
+﻿using LicenceManager.DBLib.Class;
+using LicenceManager.Wpf.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,28 @@ namespace LicenceManager.Wpf.Views
     /// </summary>
     public partial class FormEditProduitView : Window
     {
-        public FormEditProduitView(ViewModelProduit context)
+        public FormEditProduitView(ViewModelProduit viewModel, Produit selectedProduit)
         {
             InitializeComponent();
-            this.DataContext = context;
+
+            this.DataContext = viewModel;
+            viewModel.SelectedProduit = selectedProduit;
+        }
+
+        private void confirm_click(object sender, RoutedEventArgs e)
+        {
+            if (((ViewModelProduit)this.DataContext).SelectedProduit != null)
+            {
+                ((ViewModelProduit)this.DataContext).UpdateProduit();
+
+                this.Close();
+
+            }
+        }
+
+        private void cancel_click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
