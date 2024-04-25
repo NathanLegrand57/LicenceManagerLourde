@@ -11,12 +11,15 @@
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Gu.Wpf.Adorners" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LicenceManager.Core\LicenceManager.Core.csproj" />
     <ProjectReference Include="..\LicenceManager.DBLib\LicenceManager.DBLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
 
 </Project>

@@ -84,29 +84,27 @@ namespace LicenceManager.Wpf.ViewModels
                     }
                     context.Update(this.SelectedProduit); // Mettre à jour les modifications du contexte en base de données
                     context.SaveChanges();
-
                 }
-
 
             }
 
         }
+        internal void RemoveProduit()
+        {
+            if (this.SelectedProduit.Libelle is null || this.SelectedProduit.Description is null) // Ne fonctionne pas avec les clés étrangères
+            {
+                string text = "Impossible de supprimer une ligne vide";
+                MessageBox.Show(text);
+            }
+            else
+            {
+                using (LicencemanagerContext context = new())
+                {
+                    context.Remove(this.SelectedProduit);
+                    context.SaveChanges();
+                }
+                this.Produits?.Remove(this.SelectedProduit);
+            }
+        }
     }
-        //internal void RemoveProduit()
-        //{
-        //    if (this.SelectedProduit.Libelle is null || this.SelectedProduit.Type is null)
-        //    {
-        //        string text = "Impossible de supprimer une ligne vide";
-        //        MessageBox.Show(text);
-        //    }
-        //    else
-        //    {
-        //        using (LicencemanagerContext context = new())
-        //        {
-        //            context.Remove(this.SelectedProduit);
-        //            context.SaveChanges();
-        //        }
-        //        this.Produits?.Remove(this.SelectedProduit);
-        //    }
-        //}
 }

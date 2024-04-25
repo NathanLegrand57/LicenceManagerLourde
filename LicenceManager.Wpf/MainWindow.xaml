@@ -29,7 +29,7 @@
                          Grid.Row="1" 
                          ItemsSource="{Binding Produits}"
 						         DisplayMemberPath="Libelle"
-						         SelectedItem="{Binding Produits}"
+						         SelectedItem="{Binding SelectedProduit}"
                                  AutoGenerateColumns="False"
                                  IsReadOnly="True"
 >
@@ -53,7 +53,7 @@
                         </Grid.ColumnDefinitions>
                         <Button x:Name="_AddProduitButton" Content="Ajouter" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#157347"  Click="Create_Produit_Click"/>
                     </Grid>
-                    <GroupBox Grid.Row="1" Visibility="{Binding Produits, Converter={StaticResource SharedObjectToVisibilityConverter}}">
+                    <!--<GroupBox Grid.Row="1" Visibility="{Binding SelectedProduit, Converter={StaticResource SharedObjectToVisibilityConverter}}">-->
                         <Grid ShowGridLines="False">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"></RowDefinition>
@@ -73,9 +73,9 @@
                             </Grid.ColumnDefinitions>
                             <!--<Button x:Name="_ShowProduitsButton" Content="Détails" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#0b5ed7" Click="Show_Details_Produit"/>-->
                             <Button x:Name="_UpdateProduitsButton" Content="Modifier" Grid.Row="1" Grid.Column="3" Foreground="Black" Background="#ffca2c" Click="Edit_Produit_Click"/>
-                            <!--<Button x:Name="_DeleteProduitsButton" Content="Supprimer" Grid.Row="1" Grid.Column="5" Foreground="White" Background="#bb2d3b" Click="Delete_Produit_Click"/>-->
+                            <Button x:Name="_DeleteProduitsButton" Content="Supprimer" Grid.Row="1" Grid.Column="5" Foreground="White" Background="#bb2d3b" Click="Delete_Produit_Click"/>
                         </Grid>
-                    </GroupBox>
+                    <!--</GroupBox>-->
 
                 </Grid>
             </TabItem>

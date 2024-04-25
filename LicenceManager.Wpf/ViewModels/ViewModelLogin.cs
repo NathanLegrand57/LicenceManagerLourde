@@ -1,6 +1,8 @@
 ﻿using LicenceManager.Core;
 using LicenceManager.DBLib.Class;
+//using Microsoft.AspNet.Identity;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LicenceManager.Wpf.ViewModels
 {
@@ -11,12 +13,12 @@ namespace LicenceManager.Wpf.ViewModels
         /// <summary>
         /// Nom d'utilisateur
         /// </summary>
-        public string? Libelle;
+        public string? Libelle { get; set; }
 
         /// <summary>
         /// Mot de passe
         /// </summary>
-        public string? Password;
+        public string? Password { get; set; }
 
         #endregion
 

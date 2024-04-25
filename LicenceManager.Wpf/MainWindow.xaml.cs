@@ -67,9 +67,21 @@ namespace LicenceManager.Wpf
         //}
 
 
-        //private void Delete_Produit_Click(object sender, RoutedEventArgs e)
-        //{
-        //    ((ViewModelProduit)this.DataContext).RemoveProduits();
-        //}
+        private void Delete_Produit_Click(object sender, RoutedEventArgs e)
+        {
+            if (test.SelectedItem != null)
+            {
+                // Obtenir le produit sélectionné
+                Produit selectedProduit = (Produit)test.SelectedItem;
+
+                ((ViewModelProduit)this.DataContext).RemoveProduit();
+            }
+            else
+            {
+                // Afficher un message d'erreur si aucun produit n'est sélectionné
+                MessageBox.Show("Veuillez sélectionner un produit à supprimer.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
+        }
     }
 }

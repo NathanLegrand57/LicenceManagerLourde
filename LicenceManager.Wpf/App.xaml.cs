@@ -3,6 +3,7 @@ using LicenceManager.Wpf.Windows;
 using System.Configuration;
 using System.Data;
 using System.Windows;
+using BCrypt.Net;
 
 namespace LicenceManager.Wpf
 {
@@ -16,22 +17,7 @@ namespace LicenceManager.Wpf
 
         public User? LoggedUser { get; set; }
 
-
-
         #endregion
-
-        public App()
-        {
-            using (LicencemanagerContext? db = new())
-            {
-                db.Database.EnsureCreated();
-                if (!db.Users.Any())
-                {
-                    db.Users.Add(new User { Libelle = "admin", Password = new Microsoft.AspNet.Identity.PasswordHasher().HashPassword("test") });
-                    db.SaveChanges();
-                }
-            }
-        }
 
         public void Login(User user)
         {
@@ -41,6 +27,7 @@ namespace LicenceManager.Wpf
             App.Current.MainWindow = mainWindow;
             mainWindow.Show();
         }
+
         public void Logout()
         {
             LoggedUser = null;
