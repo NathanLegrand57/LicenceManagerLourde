@@ -25,5 +25,24 @@ namespace LicenceManager.Wpf
             DataContext = new ViewModelUtilisateur();
 
         }
+
+        private void Edit_Utilisateur_Click(object sender, RoutedEventArgs e)
+        {
+            if (listeUtilisateurs.SelectedItem != null)
+            {
+
+                // Initialiser la vue FormEditUtilisateurView en transmettant le ViewModelUtilisateur et le produit sélectionné
+                FormEditUtilisateurView formEditUtilisateurView = new FormEditUtilisateurView(((ViewModelUtilisateur)this.DataContext));
+
+                // Afficher la vue
+                formEditUtilisateurView.ShowDialog();
+            }
+            else
+            {
+                // Afficher un message d'erreur si aucun produit n'est sélectionné
+                MessageBox.Show("Veuillez sélectionner un produit à modifier.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
     }
 }

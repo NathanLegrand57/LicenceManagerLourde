@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace LicenceManager.Wpf.Views
 {
     /// <summary>
-    /// Logique d'interaction pour FormEditProduitView.xaml
+    /// Logique d'interaction pour FormEditUtilisateurView.xaml
     /// </summary>
-    public partial class FormEditProduitView : Window
+    public partial class FormEditUtilisateurView : Window
     {
-        public FormEditProduitView(ViewModelProduit viewModel)
+        public FormEditUtilisateurView(ViewModelUtilisateur viewModel)
         {
             InitializeComponent();
 
@@ -31,9 +31,9 @@ namespace LicenceManager.Wpf.Views
         // Bouton de confirmation du formulaire
         private void confirm_click(object sender, RoutedEventArgs e)
         {
-            if (((ViewModelProduit)this.DataContext).SelectedProduit != null)
+            if (((ViewModelUtilisateur)this.DataContext).SelectedUser != null)
             {
-                ((ViewModelProduit)this.DataContext).UpdateProduit();
+                ((ViewModelUtilisateur)this.DataContext).UpdateUser();
 
                 this.Close();
 

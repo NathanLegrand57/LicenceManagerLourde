@@ -67,6 +67,7 @@
                         <ColumnDefinition Width="70"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
+                    <Button x:Name="_UpdateUtilisateursButton" Content="Modifier" Grid.Row="1" Grid.Column="3" Foreground="Black" Background="#ffca2c" Click="Edit_Utilisateur_Click"/>
                 </Grid>
             </GroupBox>
         </Grid>

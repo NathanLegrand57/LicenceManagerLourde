@@ -33,5 +33,29 @@ namespace LicenceManager.Wpf.ViewModels
                 Users = new ObservableCollection<User>(mg.Users.ToList());
             }
         }
+        internal void UpdateUser()
+        {
+            if (this.SelectedUser is not null)
+            {
+                using (LicencemanagerContext context = new())
+                {
+                    // Vérifier si les champs sont vides ou non
+                    if (string.IsNullOrWhiteSpace(this.SelectedUser.Libelle))
+                    {
+                        MessageBox.Show("Veuillez saisir le nom de l'utilisateur.", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return; // Arrêter l'exécution de la méthode si le nom de l'utilisateur n'est pas rempli
+                    }
+                    else if (string.IsNullOrWhiteSpace(this.SelectedUser.Email))
+                    {
+                        MessageBox.Show("Veuillez saisir l'email de l'tilisateur.", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    context.Update(this.SelectedUser); // Mettre à jour les modifications du contexte en base de données
+                    context.SaveChanges();
+                }
+
+            }
+
+        }
     }
 }
