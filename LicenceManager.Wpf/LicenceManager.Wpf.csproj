@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Windows\DetailsProduitView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

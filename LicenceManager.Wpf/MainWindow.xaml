@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LicenceManager.Wpf" xmlns:Window="clr-namespace:LicenceManager.Wpf.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Liste des produits" Height="450" Width="800">
     <Grid>
         <TabControl>
             <TabItem Header="Produits">
@@ -53,7 +53,7 @@
                         </Grid.ColumnDefinitions>
                         <Button x:Name="_AddProduitButton" Content="Ajouter" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#157347"  Click="Create_Produit_Click"/>
                     </Grid>
-                    <!--<GroupBox Grid.Row="1" Visibility="{Binding SelectedProduit, Converter={StaticResource SharedObjectToVisibilityConverter}}">-->
+                    <GroupBox Grid.Row="1" Visibility="{Binding SelectedProduit, Converter={StaticResource SharedObjectToVisibilityConverter}}">
                         <Grid ShowGridLines="False">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"></RowDefinition>
@@ -75,9 +75,9 @@
                             <Button x:Name="_UpdateProduitsButton" Content="Modifier" Grid.Row="1" Grid.Column="3" Foreground="Black" Background="#ffca2c" Click="Edit_Produit_Click"/>
                             <Button x:Name="_DeleteProduitsButton" Content="Supprimer" Grid.Row="1" Grid.Column="5" Foreground="White" Background="#bb2d3b" Click="Delete_Produit_Click"/>
                         </Grid>
-                    <!--</GroupBox>-->
-
+                    </GroupBox>
                 </Grid>
+                
             </TabItem>
             <!--<TabItem Header="Clients">
                 <views:ClientView/>
