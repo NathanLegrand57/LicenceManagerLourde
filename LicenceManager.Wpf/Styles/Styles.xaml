@@ -88,6 +88,15 @@
             <Setter Property="Background" Value="#00B8FF"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
         </Style.Setters>
-
     </Style>
+
+    <Style x:Key="TabItemStyle" TargetType="TabItem">
+
+        <Style.Setters>
+            <Setter Property="Background" Value="#00B8FF"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+        </Style.Setters>
+    </Style>
+    
+    
 </ResourceDictionary>

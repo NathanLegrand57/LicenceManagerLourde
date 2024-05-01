@@ -70,7 +70,7 @@
                     <Button x:Name="_ShowUtilisateursButton" Content="Détails" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#0b5ed7" Click="Show_Details_Utilisateur"/>
                     <Button x:Name="_UpdateUtilisateursButton" Content="Modifier" Grid.Row="1" Grid.Column="3" Foreground="Black" Background="#ffca2c" Click="Edit_Utilisateur_Click"/>
                     <Button x:Name="_DeleteUtilisateursButton" Content="Supprimer" Grid.Row="1" Grid.Column="5" Foreground="White" Background="#bb2d3b" Click="Delete_Utilisateur_Click"/>
-                </Grid>
+       </Grid>
             </GroupBox>
         </Grid>
     </Grid>

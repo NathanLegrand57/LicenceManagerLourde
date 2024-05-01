@@ -8,13 +8,13 @@
         Title="Menu LicenceManager" Height="450" Width="800">
     <Grid>
         <TabControl>
-            <TabItem Header="Produits">
+            <TabItem Header="Produits" Style="{StaticResource TabItemStyle}">
                 <Grid>
 
                     <Grid ShowGridLines="False">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100"></RowDefinition>
-                            <RowDefinition Height="200"></RowDefinition>
+                            <RowDefinition Height="100"></RowDefinition>
                             <RowDefinition Height="20"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -79,7 +79,7 @@
                 </Grid>
                 
             </TabItem>
-            <TabItem Header="Utilisateurs">
+            <TabItem Header="Utilisateurs" Style="{StaticResource TabItemStyle}">
                 <local:UserView/>
             </TabItem>
         </TabControl>
