@@ -26,6 +26,7 @@ namespace LicenceManager.Wpf
 
         }
 
+
         private void Edit_Utilisateur_Click(object sender, RoutedEventArgs e)
         {
             if (listeUtilisateurs.SelectedItem != null)
@@ -41,6 +42,23 @@ namespace LicenceManager.Wpf
             {
                 // Afficher un message d'erreur si aucun utilisateur n'est sélectionné
                 MessageBox.Show("Veuillez sélectionner un utilisateur à modifier.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void Show_Details_Utilisateur(object sender, RoutedEventArgs e)
+        {
+            if (listeUtilisateurs.SelectedItem != null)
+            {
+
+                // Initialiser la vue DetailsUtilisateurView en transmettant le ViewModelUtilisateur et l'utilisateur sélectionné
+                DetailsUtilisateurView detailsUtilisateurView = new DetailsUtilisateurView(((ViewModelUtilisateur)this.DataContext));
+
+                // Afficher la vue
+                detailsUtilisateurView.ShowDialog();
+            }
+            else
+            {
+                // Afficher un message d'erreur si aucun utilisateur n'est sélectionné
+                MessageBox.Show("Veuillez sélectionner un utilisateur.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void Delete_Utilisateur_Click(object sender, RoutedEventArgs e)

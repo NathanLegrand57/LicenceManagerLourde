@@ -33,6 +33,7 @@ namespace LicenceManager.Wpf.ViewModels
                 Users = new ObservableCollection<User>(mg.Users.ToList());
             }
         }
+
         internal void UpdateUser()
         {
             if (this.SelectedUser is not null)
@@ -56,6 +57,7 @@ namespace LicenceManager.Wpf.ViewModels
 
             }
         }
+
         internal void RemoveUser()
         {
             if (this.SelectedUser.Libelle is null || this.SelectedUser.Email is null)
