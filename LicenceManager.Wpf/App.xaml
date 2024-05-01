@@ -2,7 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LicenceManager.Wpf" xmlns:converters="clr-namespace:LicenceManager.Wpf.Converters"
-             StartupUri="Windows/WindowLogin.xaml">
+             StartupUri="MainWindow.xaml">
+             <!--StartupUri="Windows/WindowLogin.xaml">-->
     <Application.Resources>
         <ResourceDictionary>
             

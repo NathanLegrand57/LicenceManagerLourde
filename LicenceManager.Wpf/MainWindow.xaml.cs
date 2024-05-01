@@ -38,13 +38,14 @@ namespace LicenceManager.Wpf
 
         private void Edit_Produit_Click(object sender, RoutedEventArgs e)
         {
-            if (test.SelectedItem != null)
+            if (listeProduits.SelectedItem != null)
             {
                 // Obtenir le produit sélectionné
-                Produit selectedProduit = (Produit)test.SelectedItem;
+                Produit selectedProduit = (Produit)listeProduits.SelectedItem;
 
                 // Initialiser la vue FormEditProduitView en transmettant le ViewModelProduit et le produit sélectionné
-                FormEditProduitView formEditProduitView = new FormEditProduitView((ViewModelProduit)this.DataContext, selectedProduit);
+                FormEditProduitView formEditProduitView = new FormEditProduitView(((ViewModelProduit)this.DataContext));
+
 
                 // Afficher la vue
                 formEditProduitView.ShowDialog();
@@ -54,7 +55,6 @@ namespace LicenceManager.Wpf
                 // Afficher un message d'erreur si aucun produit n'est sélectionné
                 MessageBox.Show("Veuillez sélectionner un produit à modifier.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
 
         //private void Show_Details_Produit(object sender, RoutedEventArgs e)
@@ -69,11 +69,9 @@ namespace LicenceManager.Wpf
 
         private void Delete_Produit_Click(object sender, RoutedEventArgs e)
         {
-            if (test.SelectedItem != null)
+            if (listeProduits.SelectedItem != null)
             {
-                // Obtenir le produit sélectionné
-                Produit selectedProduit = (Produit)test.SelectedItem;
-
+                // Supprimer le produit sélectionné
                 ((ViewModelProduit)this.DataContext).RemoveProduit();
             }
             else
@@ -81,7 +79,7 @@ namespace LicenceManager.Wpf
                 // Afficher un message d'erreur si aucun produit n'est sélectionné
                 MessageBox.Show("Veuillez sélectionner un produit à supprimer.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            
+
         }
     }
 }

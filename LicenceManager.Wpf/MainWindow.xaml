@@ -24,7 +24,7 @@
                         </Grid.ColumnDefinitions>
                         <Label x:Name="LabelProduitsTitle" Content="Produits :" Grid.Column="1" Style="{StaticResource LabelTitle}"></Label>
                         <DataGrid
-                            x:Name="test"
+                            x:Name="listeProduits"
                          Grid.Column="1"
                          Grid.Row="1" 
                          ItemsSource="{Binding Produits}"

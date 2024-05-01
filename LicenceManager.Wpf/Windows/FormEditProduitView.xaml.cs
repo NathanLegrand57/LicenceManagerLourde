@@ -21,12 +21,11 @@ namespace LicenceManager.Wpf.Views
     /// </summary>
     public partial class FormEditProduitView : Window
     {
-        public FormEditProduitView(ViewModelProduit viewModel, Produit selectedProduit)
+        public FormEditProduitView(ViewModelProduit viewModel)
         {
             InitializeComponent();
 
             this.DataContext = viewModel;
-            viewModel.SelectedProduit = selectedProduit;
         }
 
         private void confirm_click(object sender, RoutedEventArgs e)
