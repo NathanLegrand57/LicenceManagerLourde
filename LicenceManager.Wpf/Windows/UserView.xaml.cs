@@ -31,7 +31,7 @@ namespace LicenceManager.Wpf
             if (listeUtilisateurs.SelectedItem != null)
             {
 
-                // Initialiser la vue FormEditUtilisateurView en transmettant le ViewModelUtilisateur et le produit sélectionné
+                // Initialiser la vue FormEditUtilisateurView en transmettant le ViewModelUtilisateur et l'utilisateur sélectionné
                 FormEditUtilisateurView formEditUtilisateurView = new FormEditUtilisateurView(((ViewModelUtilisateur)this.DataContext));
 
                 // Afficher la vue
@@ -39,10 +39,23 @@ namespace LicenceManager.Wpf
             }
             else
             {
-                // Afficher un message d'erreur si aucun produit n'est sélectionné
-                MessageBox.Show("Veuillez sélectionner un produit à modifier.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                // Afficher un message d'erreur si aucun utilisateur n'est sélectionné
+                MessageBox.Show("Veuillez sélectionner un utilisateur à modifier.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void Delete_Utilisateur_Click(object sender, RoutedEventArgs e)
+        {
+            if (listeUtilisateurs.SelectedItem != null)
+            {
+                // Supprimer l'utilisateur sélectionné
+                ((ViewModelUtilisateur)this.DataContext).RemoveUser();
+            }
+            else
+            {
+                // Afficher un message d'erreur si aucun utilisateur n'est sélectionné
+                MessageBox.Show("Veuillez sélectionner un utilisateur à supprimer.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
+        }
     }
 }

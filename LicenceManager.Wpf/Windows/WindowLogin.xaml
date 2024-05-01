@@ -6,7 +6,7 @@
         xmlns:adorners="http://gu.se/Adorners"
         xmlns:local="clr-namespace:LicenceManager.Wpf.Windows" xmlns:core="clr-namespace:LicenceManager.Core;assembly=LicenceManager.Core" d:DataContext="{d:DesignInstance Type=core:ObservableObject}"
         mc:Ignorable="d"
-        Title="WindowLogin" Height="450" Width="800">
+        Title="Connexion LicenceManager" Height="450" Width="800">
     <Grid>
         
         <Grid ShowGridLines="False">

@@ -55,7 +55,23 @@ namespace LicenceManager.Wpf.ViewModels
                 }
 
             }
-
+        }
+        internal void RemoveUser()
+        {
+            if (this.SelectedUser.Libelle is null || this.SelectedUser.Email is null)
+            {
+                string text = "Impossible de supprimer une ligne vide";
+                MessageBox.Show(text);
+            }
+            else
+            {
+                using (LicencemanagerContext context = new())
+                {
+                    context.Remove(this.SelectedUser);
+                    context.SaveChanges();
+                }
+                this.Users?.Remove(this.SelectedUser); // Supprime l'utilisateur
+            }
         }
     }
 }
