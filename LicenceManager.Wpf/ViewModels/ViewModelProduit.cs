@@ -91,7 +91,7 @@ namespace LicenceManager.Wpf.ViewModels
         }
         internal void RemoveProduit()
         {
-            if (this.SelectedProduit.Libelle is null || this.SelectedProduit.Description is null) // Ne fonctionne pas avec les clés étrangères
+            if (this.SelectedProduit.Libelle is null || this.SelectedProduit.Description is null)
             {
                 string text = "Impossible de supprimer une ligne vide";
                 MessageBox.Show(text);

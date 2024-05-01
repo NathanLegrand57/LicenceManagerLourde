@@ -79,9 +79,9 @@
                 </Grid>
                 
             </TabItem>
-            <!--<TabItem Header="Clients">
-                <views:ClientView/>
-            </TabItem>-->
+            <TabItem Header="Utilisateurs">
+                <local:UserView/>
+            </TabItem>
         </TabControl>
 
     </Grid>
