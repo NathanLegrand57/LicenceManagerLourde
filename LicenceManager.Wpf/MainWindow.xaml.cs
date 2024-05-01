@@ -40,12 +40,9 @@ namespace LicenceManager.Wpf
         {
             if (listeProduits.SelectedItem != null)
             {
-                // Obtenir le produit sélectionné
-                Produit selectedProduit = (Produit)listeProduits.SelectedItem;
 
                 // Initialiser la vue FormEditProduitView en transmettant le ViewModelProduit et le produit sélectionné
                 FormEditProduitView formEditProduitView = new FormEditProduitView(((ViewModelProduit)this.DataContext));
-
 
                 // Afficher la vue
                 formEditProduitView.ShowDialog();
@@ -57,14 +54,24 @@ namespace LicenceManager.Wpf
             }
         }
 
-        //private void Show_Details_Produit(object sender, RoutedEventArgs e)
-        //{
-        //    ViewDetails detailsview = new ViewDetails();
+        private void Show_Details_Produit(object sender, RoutedEventArgs e)
+        {
+            if (listeProduits.SelectedItem != null)
+            {
 
-        //    detailsview.ShowDialog();
+                // Initialiser la vue DetailsProduitView en transmettant le ViewModelProduit et le produit sélectionné
+                DetailsProduitView detailsProduitView = new DetailsProduitView(((ViewModelProduit)this.DataContext));
 
-        //    //detailsview.MyProperty;
-        //}
+                // Afficher la vue
+                detailsProduitView.ShowDialog();
+            }
+            else
+            {
+                // Afficher un message d'erreur si aucun produit n'est sélectionné
+                MessageBox.Show("Veuillez sélectionner un produit.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
 
 
         private void Delete_Produit_Click(object sender, RoutedEventArgs e)

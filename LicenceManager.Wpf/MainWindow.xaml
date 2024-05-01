@@ -71,7 +71,7 @@
                                 <ColumnDefinition Width="70"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <!--<Button x:Name="_ShowProduitsButton" Content="Détails" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#0b5ed7" Click="Show_Details_Produit"/>-->
+                            <Button x:Name="_ShowProduitsButton" Content="Détails" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#0b5ed7" Click="Show_Details_Produit"/>
                             <Button x:Name="_UpdateProduitsButton" Content="Modifier" Grid.Row="1" Grid.Column="3" Foreground="Black" Background="#ffca2c" Click="Edit_Produit_Click"/>
                             <Button x:Name="_DeleteProduitsButton" Content="Supprimer" Grid.Row="1" Grid.Column="5" Foreground="White" Background="#bb2d3b" Click="Delete_Produit_Click"/>
                         </Grid>
@@ -81,9 +81,6 @@
             </TabItem>
             <!--<TabItem Header="Clients">
                 <views:ClientView/>
-            </TabItem>
-            <TabItem Header="Partenaires">
-                <views:PartenaireView/>
             </TabItem>-->
         </TabControl>
 
