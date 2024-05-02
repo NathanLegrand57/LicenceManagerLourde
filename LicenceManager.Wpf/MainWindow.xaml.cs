@@ -21,8 +21,8 @@ namespace LicenceManager.Wpf
     {
         public MainWindow()
         {
-            InitializeComponent();
             DataContext = new ViewModelProduit();
+            InitializeComponent();
 
         }
         private void Create_Produit_Click(object sender, RoutedEventArgs e)

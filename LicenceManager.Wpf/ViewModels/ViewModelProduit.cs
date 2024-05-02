@@ -85,10 +85,9 @@ namespace LicenceManager.Wpf.ViewModels
                     context.Update(this.SelectedProduit); // Mettre à jour les modifications du contexte en base de données
                     context.SaveChanges();
                 }
-
             }
-
         }
+
         internal void RemoveProduit()
         {
             if (this.SelectedProduit.Libelle is null || this.SelectedProduit.Description is null)

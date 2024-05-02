@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LicenceManager.Wpf" xmlns:Window="clr-namespace:LicenceManager.Wpf.Windows"
+        xmlns:local="clr-namespace:LicenceManager.Wpf" xmlns:Window="clr-namespace:LicenceManager.Wpf.Windows" xmlns:converters="clr-namespace:LicenceManager.Wpf.Converters"
         mc:Ignorable="d">
     <Grid>
         <Grid>
@@ -78,9 +78,9 @@
                         <ColumnDefinition Width="70"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="_ShowUtilisateursButton" Content="Détails" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#0b5ed7" Click="Show_Details_Utilisateur"/>
-                    <Button x:Name="_UpdateUtilisateursButton" Content="Modifier" Grid.Row="1" Grid.Column="3" Foreground="Black" Background="#ffca2c" Click="Edit_Utilisateur_Click"/>
-                    <Button x:Name="_DeleteUtilisateursButton" Content="Supprimer" Grid.Row="1" Grid.Column="5" Foreground="White" Background="#bb2d3b" Click="Delete_Utilisateur_Click"/>
+                    <Button x:Name="_ShowUtilisateursButton" Content="Détails" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#0b5ed7" Click="Show_Details_Utilisateur" Visibility="{Binding LoggedUser, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter='admin'}"/>
+                    <Button x:Name="_UpdateUtilisateursButton" Content="Modifier" Grid.Row="1" Grid.Column="3" Foreground="Black" Background="#ffca2c" Click="Edit_Utilisateur_Click" Visibility="{Binding LoggedUser, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter='admin'}"/>
+                    <Button x:Name="_DeleteUtilisateursButton" Content="Supprimer" Grid.Row="1" Grid.Column="5" Foreground="White" Background="#bb2d3b" Click="Delete_Utilisateur_Click" Visibility="{Binding LoggedUser, Converter={StaticResource RoleToVisibilityConverter}, ConverterParameter='admin'}"/>
        </Grid>
             </GroupBox>
         </Grid>

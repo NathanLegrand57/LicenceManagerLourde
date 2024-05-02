@@ -12,6 +12,7 @@ namespace LicenceManager.Wpf.ViewModels
 {
     public class ViewModelUtilisateur
     {
+        public User? LoggedUser { get; set; }
 
         public ObservableCollection<User> Users { get; set; }
 
@@ -25,7 +26,10 @@ namespace LicenceManager.Wpf.ViewModels
             if (this.NewUser == null)
             {
                 this.NewUser = new User();
+
             }
+            // Récupérer l'utilisateur connecté
+            LoggedUser = ((App)App.Current).LoggedUser;
 
 
             using (LicencemanagerContext mg = new LicencemanagerContext())

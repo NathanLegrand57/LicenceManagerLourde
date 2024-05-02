@@ -23,7 +23,6 @@ namespace LicenceManager.Wpf
         {
             InitializeComponent();
             DataContext = new ViewModelUtilisateur();
-
         }
 
 

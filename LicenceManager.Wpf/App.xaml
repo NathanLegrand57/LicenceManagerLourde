@@ -11,7 +11,8 @@
             </ResourceDictionary.MergedDictionaries>
             <converters:ObjectToVisibilityConverter x:Key="SharedObjectToVisibilityConverter"/>
             <converters:BoolToVisibilityConverter x:Key="SharedBoolToVisibilityConverter"/>
-            
+            <converters:RoleToVisibilityConverter x:Key="RoleToVisibilityConverter"/>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

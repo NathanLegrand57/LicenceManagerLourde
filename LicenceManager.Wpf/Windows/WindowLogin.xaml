@@ -21,7 +21,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Image Source="C:\Users\natha\source\repos\LicenceManager.Wpf\LicenceManager.Wpf\Assets\logo_LicenceManager.png" Grid.Row="0" Grid.Column="1"/>
+            <Image Source="..\Assets\logo_LicenceManager.png" Grid.Row="0" Grid.Column="1"/>
 
         </Grid>
 
