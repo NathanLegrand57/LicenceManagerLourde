@@ -97,6 +97,17 @@
             <Setter Property="Height" Value="30"></Setter>
         </Style.Setters>
     </Style>
-    
-    
+
+    <Style x:Key="buttonLogout" TargetType="Button">
+
+        <Style.Setters>
+
+            <Setter Property="Background" Value="#bb2d3b"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+
+        </Style.Setters>
+
+    </Style>
+
+
 </ResourceDictionary>

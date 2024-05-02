@@ -106,5 +106,8 @@ namespace LicenceManager.Wpf.ViewModels
                 this.Produits?.Remove(this.SelectedProduit);
             }
         }
+
+        // Déconnecte l'utilisateur 
+        public void Logout() => ((App)App.Current).Logout();
     }
 }

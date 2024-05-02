@@ -27,7 +27,6 @@ namespace LicenceManager.Wpf.ViewModels
         public void Login()
         {
             User? user = null;
-            Role? role = null;
             bool isEmploye = false;
             bool isAdmin = false;
             using (LicencemanagerContext context = new())
@@ -38,6 +37,7 @@ namespace LicenceManager.Wpf.ViewModels
 
                 if (user != null)
                 {
+                    // Vérifier si l'utilisateur est un employé ou un administrateur
                     isEmploye = context.AssignedRoles.Any(ar => ar.EntityId == user.Id && ar.RoleId == employeRole.Id);
                     isAdmin = context.AssignedRoles.Any(ar => ar.EntityId == user.Id && ar.RoleId == adminRole.Id);
                     if (isEmploye || isAdmin )

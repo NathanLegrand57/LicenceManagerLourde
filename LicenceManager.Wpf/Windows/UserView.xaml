@@ -28,14 +28,25 @@
 						         DisplayMemberPath="Libelle"
 						         SelectedItem="{Binding SelectedUser}"
                                  AutoGenerateColumns="False"
-                                 IsReadOnly="True"
->
-
+                                 IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Nom de l'utilisateur" Binding="{Binding Libelle}"/>
                         <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
                     </DataGrid.Columns>
                 </DataGrid>
+            </Grid>
+            <Grid ShowGridLines="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonLogout" Content="Se déconnecter" Grid.Column="1" Height="30" Width="110" Click="ButtonLogout_Click" HorizontalAlignment="Center" Style="{StaticResource buttonLogout}"/>
             </Grid>
             <Grid ShowGridLines="False">
                 <Grid.RowDefinitions>

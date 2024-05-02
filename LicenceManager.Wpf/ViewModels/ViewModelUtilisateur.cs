@@ -75,5 +75,9 @@ namespace LicenceManager.Wpf.ViewModels
                 this.Users?.Remove(this.SelectedUser); // Supprime l'utilisateur
             }
         }
+
+        // Déconnecte l'utilisateur 
+        public void Logout() => ((App)App.Current).Logout();
+
     }
 }

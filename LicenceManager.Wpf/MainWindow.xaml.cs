@@ -88,5 +88,9 @@ namespace LicenceManager.Wpf
             }
 
         }
+
+        // Appelle la fonction logout dans ViewModelProduit
+        private void ButtonLogout_Click(object sender, RoutedEventArgs e)
+        => ((ViewModelProduit)this.DataContext).Logout();
     }
 }

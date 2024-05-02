@@ -73,7 +73,10 @@ namespace LicenceManager.Wpf
                 // Afficher un message d'erreur si aucun utilisateur n'est sélectionné
                 MessageBox.Show("Veuillez sélectionner un utilisateur à supprimer.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
+
+        // Appelle la fonction logout dans ViewModelUtilisateur
+        private void ButtonLogout_Click(object sender, RoutedEventArgs e)
+        => ((ViewModelUtilisateur)this.DataContext).Logout();
     }
 }
