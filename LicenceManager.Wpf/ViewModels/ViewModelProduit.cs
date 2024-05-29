@@ -15,7 +15,6 @@ namespace LicenceManager.Wpf.ViewModels
 
         public ObservableCollection<Produit> Produits { get; set; }
 
-
         public Produit? SelectedProduit { get; set; }
 
         public Produit? NewProduit { get; set; }

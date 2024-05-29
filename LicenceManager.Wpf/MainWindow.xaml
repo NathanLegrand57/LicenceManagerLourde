@@ -63,7 +63,7 @@
                         </Grid.ColumnDefinitions>
                         <Button x:Name="_AddProduitButton" Content="Ajouter" Grid.Row="1" Grid.Column="1" Foreground="White" Background="#157347"  Click="Create_Produit_Click"/>
                     </Grid>
-                    <GroupBox Grid.Row="1">
+                    <GroupBox Grid.Row="1" Visibility="{Binding SelectedProduit, Converter={StaticResource SharedObjectToVisibilityConverter}}">
                         <Grid ShowGridLines="False">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"></RowDefinition>
