@@ -1,8 +1,10 @@
 ﻿using LicenceManager.DBLib.Class;
+using Microsoft.EntityFrameworkCore;
 using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +44,11 @@ namespace LicenceManager.Wpf.ViewModels
         {
             if (this.SelectedUser is not null)
             {
-                using (LicencemanagerContext context = new())
+                var connectionString = ConfigurationManager.ConnectionStrings["LicenceManagerConnexion"].ConnectionString;
+                var optionsBuilder = new DbContextOptionsBuilder<LicencemanagerContext>();
+                optionsBuilder.UseMySQL(connectionString);
+
+                using (LicencemanagerContext context = new LicencemanagerContext(optionsBuilder.Options))
                 {
                     // Vérifier si les champs sont vides ou non
                     if (string.IsNullOrWhiteSpace(this.SelectedUser.Libelle))
@@ -71,7 +77,11 @@ namespace LicenceManager.Wpf.ViewModels
             }
             else
             {
-                using (LicencemanagerContext context = new())
+                var connectionString = ConfigurationManager.ConnectionStrings["LicenceManagerConnexion"].ConnectionString;
+                var optionsBuilder = new DbContextOptionsBuilder<LicencemanagerContext>();
+                optionsBuilder.UseMySQL(connectionString);
+
+                using (LicencemanagerContext context = new LicencemanagerContext(optionsBuilder.Options))
                 {
                     context.Remove(this.SelectedUser);
                     context.SaveChanges();

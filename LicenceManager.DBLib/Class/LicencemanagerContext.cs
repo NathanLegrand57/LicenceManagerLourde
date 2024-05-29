@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace LicenceManager.DBLib.Class;
 
@@ -13,6 +15,15 @@ public partial class LicencemanagerContext : DbContext
     public LicencemanagerContext(DbContextOptions<LicencemanagerContext> options)
         : base(options)
     {
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["LicenceManagerConnexion"].ConnectionString;
+            optionsBuilder.UseMySQL(connectionString);
+        }
     }
 
     public virtual DbSet<Ability> Abilities { get; set; }
@@ -41,9 +52,9 @@ public partial class LicencemanagerContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySQL("Server=localhost;Database=licencemanager;user=root;password=;");
+        //=> optionsBuilder.UseMySQL("Server=localhost;Database=licencemanager;user=root;password=;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

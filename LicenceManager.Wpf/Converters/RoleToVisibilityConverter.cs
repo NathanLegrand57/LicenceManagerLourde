@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows;
 using LicenceManager.DBLib.Class;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace LicenceManager.Wpf.Converters;
 
@@ -16,7 +18,11 @@ class RoleToVisibilityConverter : IValueConverter
     {
         User? user = null;
         bool isAdmin = false;
-        using (LicencemanagerContext context = new())
+        var connectionString = ConfigurationManager.ConnectionStrings["LicenceManagerConnexion"].ConnectionString;
+        var optionsBuilder = new DbContextOptionsBuilder<LicencemanagerContext>();
+        optionsBuilder.UseMySQL(connectionString);
+
+        using (LicencemanagerContext context = new LicencemanagerContext(optionsBuilder.Options))
         {
             if (value is not User)
                 throw new Exception("Le type de l'objet n'est pas bon, il faut que ce soit un utilisateur");

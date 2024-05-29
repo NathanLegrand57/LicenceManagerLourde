@@ -1,8 +1,10 @@
 ﻿using LicenceManager.DBLib.Class;
+using Microsoft.EntityFrameworkCore;
 using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +39,11 @@ namespace LicenceManager.Wpf.ViewModels
         {
             // Vérifier si les champs obligatoires sont remplis
 
-            using (LicencemanagerContext context = new())
+            var connectionString = ConfigurationManager.ConnectionStrings["LicenceManagerConnexion"].ConnectionString;
+            var optionsBuilder = new DbContextOptionsBuilder<LicencemanagerContext>();
+            optionsBuilder.UseMySQL(connectionString);
+
+            using (LicencemanagerContext context = new LicencemanagerContext(optionsBuilder.Options))
             {
                 if (this.NewProduit == null)
                 {
@@ -68,7 +74,11 @@ namespace LicenceManager.Wpf.ViewModels
         {
             if (this.SelectedProduit is not null)
             {
-                using (LicencemanagerContext context = new())
+                var connectionString = ConfigurationManager.ConnectionStrings["LicenceManagerConnexion"].ConnectionString;
+                var optionsBuilder = new DbContextOptionsBuilder<LicencemanagerContext>();
+                optionsBuilder.UseMySQL(connectionString);
+
+                using (LicencemanagerContext context = new LicencemanagerContext(optionsBuilder.Options))
                 {
                     // Vérifier si les champs sont vides ou non
                     if (string.IsNullOrWhiteSpace(this.SelectedProduit.Libelle))
@@ -96,7 +106,11 @@ namespace LicenceManager.Wpf.ViewModels
             }
             else
             {
-                using (LicencemanagerContext context = new())
+                var connectionString = ConfigurationManager.ConnectionStrings["LicenceManagerConnexion"].ConnectionString;
+                var optionsBuilder = new DbContextOptionsBuilder<LicencemanagerContext>();
+                optionsBuilder.UseMySQL(connectionString);
+
+                using (LicencemanagerContext context = new LicencemanagerContext(optionsBuilder.Options))
                 {
                     context.Remove(this.SelectedProduit);
                     context.SaveChanges();

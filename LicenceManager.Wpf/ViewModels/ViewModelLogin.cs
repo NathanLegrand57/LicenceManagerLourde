@@ -1,10 +1,8 @@
 ﻿using LicenceManager.Core;
 using LicenceManager.DBLib.Class;
-using System.Data;
-
-//using Microsoft.AspNet.Identity;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
+using System.Windows;
 
 namespace LicenceManager.Wpf.ViewModels
 {
@@ -29,7 +27,12 @@ namespace LicenceManager.Wpf.ViewModels
             User? user = null;
             bool isEmploye = false;
             bool isAdmin = false;
-            using (LicencemanagerContext context = new())
+
+            var connectionString = ConfigurationManager.ConnectionStrings["LicenceManagerConnexion"].ConnectionString;
+            var optionsBuilder = new DbContextOptionsBuilder<LicencemanagerContext>();
+            optionsBuilder.UseMySQL(connectionString);
+
+            using (LicencemanagerContext context = new LicencemanagerContext(optionsBuilder.Options))
             {
                 user = context.Users.FirstOrDefault(userTemp => userTemp.Libelle.Equals(Libelle));
                 Role employeRole = context.Roles.First(r => r.Name == "employe");
@@ -50,19 +53,19 @@ namespace LicenceManager.Wpf.ViewModels
                         else
                         {
                             // Mot de passe incorrect
-                            MessageBox.Show("Mot de passe incorrect", "Erreur de connexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Mot de passe incorrect", "Erreur de connexion", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                     else
                     {
                         // L'utilisateur n'a pas les autorisations nécessaires
-                        MessageBox.Show("Vous n'avez pas les autorisations nécessaires pour accéder à cette application", "Erreur de connexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Vous n'avez pas les autorisations nécessaires pour accéder à cette application", "Erreur de connexion", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 else
                 {
                     // Nom d'utilisateur introuvable
-                    MessageBox.Show("Nom d'utilisateur introuvable", "Erreur de connexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nom d'utilisateur introuvable", "Erreur de connexion", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
