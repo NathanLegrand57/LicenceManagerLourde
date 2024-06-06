@@ -17,6 +17,7 @@ public partial class LicencemanagerContext : DbContext
     {
     }
 
+    //Appel de la chaîne de connexion présente dans le fichier app.config
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)

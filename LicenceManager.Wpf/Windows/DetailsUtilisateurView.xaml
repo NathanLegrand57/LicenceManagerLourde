@@ -37,7 +37,7 @@
             <Label Grid.Column="1" Grid.Row="1" Content="Détails de l'utilisateur" Style="{StaticResource textblockstyle}"/>
         </Grid>
 
-        <Grid ShowGridLines="True">
+        <Grid ShowGridLines="False">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="70" />
